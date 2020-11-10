@@ -1,10 +1,29 @@
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
+import AuthPage from './pages/Auth';
+import EventsPage from './pages/Events';
+import BookingsPage from './pages/Bookings';
+import MainNavigation from './components/Navigations/MainNavigation';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Fragment>
+          <MainNavigation/>
+          <Switch>
+            <Redirect path="/" to="/auth" exact />
+            <Route path="/auth" component={AuthPage} />
+            <Route path="/events" component={EventsPage} />
+            <Route path="/bookings" component={BookingsPage} />
+          </Switch>
+        </Fragment>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
