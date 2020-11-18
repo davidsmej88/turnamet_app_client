@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import AuthPage from './pages/Auth';
@@ -12,15 +12,14 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Fragment>
-          <MainNavigation/>
+        <MainNavigation>
           <Switch>
             <Redirect path="/" to="/auth" exact />
             <Route path="/auth" component={AuthPage} />
             <Route path="/events" component={EventsPage} />
             <Route path="/bookings" component={BookingsPage} />
           </Switch>
-        </Fragment>
+        </MainNavigation>
       </BrowserRouter>
     );
   }
