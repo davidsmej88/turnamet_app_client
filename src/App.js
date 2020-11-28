@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import AuthPage from './pages/Auth';
 import EventsPage from './pages/Events';
 import BookingsPage from './pages/Bookings';
-import MainNavigation from './components/Navigations/MainNavigation';
+import MainNavigation from './components/navigations/MainNavigation';
 
 import './App.css';
 

@@ -1,11 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {
+  Paper,
+  makeStyles,
+} from '@material-ui/core';
 
-class AuthPage extends Component{
-  render() {
-    return (
-      <h1> Auth Page</h1>
-    );
+import AuthForm from '../components/auth/AuthForm';
+
+const useStyle = makeStyles(theme => ({
+  pageContent: {
+    margin: theme.spacing(2),
+    padding: theme.spacing(2),
   }
-}
+}));
+
+const AuthPage = () => {
+  const classes = useStyle();
+  
+  return (
+    <Paper className={classes.pageContent}>
+      <AuthForm/>
+    </Paper>
+  );
+};
 
 export  default AuthPage;
