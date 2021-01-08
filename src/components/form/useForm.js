@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 
 export function useForm(initialFValues) {
   const [values, setValues] = useState(initialFValues);
+  const [errors, setErrors] = useState({});
   
   const handleChange = e => {
     const { name, value } = e.target;
@@ -12,10 +13,18 @@ export function useForm(initialFValues) {
     })
   };
   
+  const resetForm = () => {
+    setValues(initialFValues);
+    setErrors({})
+  };
+  
   return {
     values,
     setValues,
+    errors,
+    setErrors,
     handleChange,
+    resetForm,
   }
 }
 
@@ -24,15 +33,19 @@ const useStyles = makeStyles(theme => ({
     '& .MuiFormControl-root': {
       width: '80%',
       margin: theme.spacing(1)
+    },
+    '& .MuiButtonBase-root': {
+      margin: theme.spacing(1)
     }
   }
 }));
 
 export function Form(props) {
-  
   const classes = useStyles();
+  const { children, ...other } = props;
+  
   return (
-    <form className={classes.root}>
+    <form className={classes.root} autoComplete="off" {...other}>
       {props.children}
     </form>
   )

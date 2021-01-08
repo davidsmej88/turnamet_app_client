@@ -1,0 +1,9 @@
+import axios from "axios";
+
+export default axios.create({
+  baseURL: 'http://localhost:8000/graphql',
+  responseType: "json",
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
